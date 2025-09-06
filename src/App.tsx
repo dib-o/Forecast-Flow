@@ -177,7 +177,7 @@ const App = () => {
     setWeather(null);
     setCity("");
     GetToday();
-  }
+  };
   const GetToday = () => {
     setDayNum(0);
     setToday(true);
@@ -239,9 +239,11 @@ const App = () => {
           <button onClick={GetWeather} disabled={!city.trim()}>
             Search
           </button>
-          <button onClick={GoBack} disabled={weather === null}>Back</button>
+          <button onClick={GoBack} disabled={weather === null}>
+            Back
+          </button>
         </div>
-        <div id="show-error">{error && <p>⚠️ {error}</p>}</div>
+        {error && <div id="show-error">{error && <p>⚠️ {error}</p>}</div>}
       </div>
       <div id="right-home">
         {weather && (
@@ -2452,9 +2454,6 @@ const App = () => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
                 subdomains={["a", "b", "c", "d"]}
               />
-              <Marker position={[14.3903, 121.0475]}>
-                <Popup>Hello from Philippines</Popup>
-              </Marker>
             </MapContainer>
           </div>
         )}
