@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import LineGraph from "./components/LineGraph";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 type WeatherData = {
