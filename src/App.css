@@ -773,6 +773,21 @@ html {
   padding: .1rem;
 }
 
+#up-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  padding: 1rem;
+  background: black;
+  color: var(--color1);
+  border-radius: 5px;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  font-size: 1.5rem;
+  text-align: center;
+}
 
 @media (max-width: 1000px) {
   #left-home {

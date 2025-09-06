@@ -178,6 +178,14 @@ const App = () => {
     setCity("");
     GetToday();
   };
+
+  const GoUp = () => {
+    const element = document.getElementById("left-home");
+    if (element) {
+      element.scrollIntoView();
+    }
+  };
+
   const GetToday = () => {
     setDayNum(0);
     setToday(true);
@@ -2443,7 +2451,7 @@ const App = () => {
           </div>
         )}
         {weather === null && (
-          <div style={{ height: "100vh", width: "100%" }}>
+          <div style={{ position: "relative", height: "100vh", width: "100%" }}>
             <MapContainer
               center={[51.505, -0.09]}
               zoom={12}
@@ -2455,6 +2463,9 @@ const App = () => {
                 subdomains={["a", "b", "c", "d"]}
               />
             </MapContainer>
+            <button id="up-button" onClick={GoUp}>
+              Up
+            </button>
           </div>
         )}
       </div>
