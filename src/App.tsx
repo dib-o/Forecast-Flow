@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 import LineGraph from "./components/LineGraph";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+
 type WeatherData = {
   current: {
     // Time
@@ -170,6 +173,11 @@ const App = () => {
   const [dayNum, setDayNum] = useState(0);
   const API_KEY = "f34b437b52954cf4bf3121117250209";
 
+  const GoBack = () => {
+    setWeather(null);
+    setCity("");
+    GetToday();
+  }
   const GetToday = () => {
     setDayNum(0);
     setToday(true);
@@ -231,6 +239,7 @@ const App = () => {
           <button onClick={GetWeather} disabled={!city.trim()}>
             Search
           </button>
+          <button onClick={GoBack} disabled={weather === null}>Back</button>
         </div>
         <div id="show-error">{error && <p>⚠️ {error}</p>}</div>
       </div>
@@ -2429,6 +2438,24 @@ const App = () => {
                 })()}
               </div>
             </div>
+          </div>
+        )}
+        {weather === null && (
+          <div style={{ height: "100vh", width: "100%" }}>
+            <MapContainer
+              center={[51.505, -0.09]}
+              zoom={12}
+              style={{ height: "100%", width: "100%" }}
+            >
+              <TileLayer
+                url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
+                subdomains={["a", "b", "c", "d"]}
+              />
+              <Marker position={[14.3903, 121.0475]}>
+                <Popup>Hello from Philippines</Popup>
+              </Marker>
+            </MapContainer>
           </div>
         )}
       </div>

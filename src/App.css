@@ -96,11 +96,13 @@ html {
 
 #left-home #user-submit {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 20rem;
-  height: 4.5rem;
+  height: auto;
   margin: 1.5rem auto;
+  gap: 2rem;
 }
 
 #left-home #user-submit button {
@@ -233,6 +235,7 @@ html {
   width: 100%;
 }
 
+
 #right-home .data-container #alert-time {
   display: flex;
   flex-direction: column;
@@ -300,8 +303,6 @@ html {
   width: 100%;
 }
 
-
-
 #right-home .data-container #real-time-data .group-data,
 #right-home .data-container #alert-data .group-data,
 #right-home .data-container .forecast-data .group-data {
@@ -315,6 +316,11 @@ html {
   background: white;
   border-radius: .5rem;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+#right-home .data-container #alert-data .group-data {
+  min-width: 20rem;
+  width: auto;
 }
 
 #right-home .data-container #real-time-data .group-data .group-title,
@@ -356,6 +362,10 @@ html {
   border-bottom: .1rem solid black;
 }
 
+#right-home .data-container #alert-data .group-data .data-contents .data {
+  gap: 3rem;
+}
+
 #right-home .data-container #real-time-data .group-data .data-contents .data .data-title,
 #right-home .data-container #alert-data .group-data .data-contents .data .data-title,
 #right-home .data-container .forecast-data .group-data .data-contents .data .data-title {
@@ -382,6 +392,10 @@ html {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+#right-home .data-container #alert-data .group-data .data-contents .data .data-value {
+  width: 50rem;
 }
 
 #right-home .data-container #real-time-data .group-data .data-contents .data .data-value p,
@@ -763,6 +777,9 @@ html {
   #right-home #right-home-title button {
     width: 10rem;
     font-size: 1.3rem;
+  }
+  #button-container {
+    gap: 2.5rem;
   }
   #button-container button {
     width: 10rem;
